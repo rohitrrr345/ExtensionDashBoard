@@ -1,96 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import './App.css';
-import { FaGoogle, FaFacebook, FaTwitter, FaGithub, FaLinkedin, FaYoutube, FaReddit } from 'react-icons/fa';
+// App.js
+import React from 'react';
 
-import Table from './Components/Table';
-const visitData = [
-  { name: 'Google', icon: <FaGoogle />, visits: 15, time: '10:00 AM' },
-  { name: 'Facebook', icon: <FaFacebook />, visits: 8, time: '11:30 AM' },
-  { name: 'Twitter', icon: <FaTwitter />, visits: 12, time: '01:00 PM' },
-  { name: 'GitHub', icon: <FaGithub />, visits: 20, time: '03:45 PM' },
-  { name: 'LinkedIn', icon: <FaLinkedin />, visits: 7, time: '02:00 PM' },
-  { name: 'YouTube', icon: <FaYoutube />, visits: 25, time: '05:00 PM' },
-  { name: 'Reddit', icon: <FaReddit />, visits: 9, time: '06:30 PM' },
+import './App.css';
+import Comment from './Components/Comment';
+
+const post = {
+  id: 1,
+  user: "ROhit@_98336496_singha",
+  avatar: "https://via.placeholder.com/30",
+  text: "That is not a thing i am tking about you as well",
+  upvotes: 3456,
+  downvotes: 0,
+  time: "7h ago",
+};
+
+const comments = [
+  {
+    id: 2,
+    user: "Primax_###",
+    avatar: "https://via.placeholder.com/30",
+    text: "Yeah, my dog is wonderful and extremely friendly but his manners go out the window when he sees children so he stays home.",
+    upvotes: 61,
+    downvotes: 0,
+    time: "5h ago",
+    replies: [
+      {
+        id: 3,
+        user: "PRIMUS_SINCE_2000",
+        avatar: "https://via.placeholder.com/30",
+        text: "Nothing better than me as well as my pet as it goes",
+        upvotes: 25,
+        downvotes: 0,
+        time: "5h ago",
+        replies: [],
+      },
+    ],
+  },
 ];
 
 function App() {
-  const [reminderTime, setReminderTime] = useState('');
-  const [reminderSite, setReminderSite] = useState('');
-
-  useEffect(() => {
-    if (Notification.permission !== 'granted') {
-      Notification.requestPermission();
-    }
-  }, []);
-
-  const handleTimeChange = (e) => {
-    setReminderTime(e.target.value);
-  };
-
-  const handleSiteChange = (e) => {
-    setReminderSite(e.target.value);
-  };
-
-  const handleSetReminder = () => {
-    if (reminderSite && reminderTime) {
-      const now = new Date();
-      const targetTime = new Date(`${now.toDateString()} ${reminderTime}`);
-      const timeDiff = targetTime - now;
-
-      if (timeDiff > 0) {
-        setTimeout(() => {
-          new Notification(`Reminder: Visit ${reminderSite}`, {
-            body: `It's time to visit ${reminderSite}!`,
-            icon: '/path/to/icon.png', 
-          });
-        }, timeDiff);
-
-        alert(`Reminder set for ${reminderSite} at ${reminderTime}`);
-      } else {
-        alert('Please choose a future time.');
-      }
-    }
-  };
-
   return (
     <div className="App">
-      <h1>Application tracker</h1>
-
-      <div className="chart-container">
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={visitData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="visits" fill="#7757bd" />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
-
-     <Table/>
-
-      <div className="reminder-section">
-        <h2>Set a Reminder to Visit a Site</h2>
-        <div className="input-group">
-          <select value={reminderSite} style={{
-            padding:"10px",
-          }}  onChange={handleSiteChange}>
-            <option value="">Select a Site</option>
-            {visitData.map((site, index) => (
-              <option key={index} value={site.name}>
-                {site.name}
-              </option>
-            ))}
-          </select>
-
-          <input type="time" style={{
-            padding:"20px",
-          }} value={reminderTime} onChange={handleTimeChange} />
-        </div>
-
-        <button onClick={handleSetReminder}>Set Reminder</button>
+      <div className="post">
+        <Comment comment={post} replies={comments} />
       </div>
     </div>
   );

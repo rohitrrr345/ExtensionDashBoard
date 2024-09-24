@@ -1,0 +1,79 @@
+/* Comment.css */
+.comment {
+    padding: 10px;
+    margin-left: 20px;
+    border-left: 2px solid #ccc;
+    margin-bottom: 15px;
+  }
+  
+  .comment-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .comment-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .comment-user {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .comment-time {
+    color: gray;
+    font-size: 12px;
+  }
+  
+  .comment-content {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .comment-actions {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .comment-actions .reply-btn,
+  .comment-actions .award-btn,
+  .comment-actions .share-btn {
+    background: none;
+    border: none;
+    /* color: #0079d3; */
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .comment-actions svg {
+    margin: 7px;
+  }
+  
+  .comment-actions .reply-btn:hover,
+  .comment-actions .award-btn:hover,
+  .comment-actions .share-btn:hover {
+    text-decoration: underline;
+  }
+  
+  .replies-section {
+    margin-top: 10px;
+  }
+  
+  .toggle-replies-btn {
+    background: none;
+    border: none;
+    color: #0079d3;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 30px;
+  }
+  
+  .nested-replies {
+    margin-left: 20px;
+    border-left: 2px solid #ccc;
+    padding-left: 10px;
+  }
+  

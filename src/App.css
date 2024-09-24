@@ -1,65 +1,37 @@
+/* App.css */
 .App {
   font-family: Arial, sans-serif;
-  text-align: center;
   padding: 20px;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
-.chart-container {
-  margin: 20px 0;
-}
-
-.visit-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.visit-table th, .visit-table td {
-  padding: 12px;
-  border: 1px solid #ddd;
-}
-
-.visit-table th {
-  background-color: #f2f2f2;
-}
-
-.visit-table td {
-  text-align: center;
-}
-
-.visit-table td svg {
-  font-size: 24px;
-  color: #666;
-}
-
-/* Reminder Section */
-.reminder-section {
-  margin-top: 40px;
-}
-
-.input-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.post {
+  border: 1px solid #ccc;
+  padding: 10px;
   margin-bottom: 20px;
 }
 
-input[type="time"] {
-  margin-left: 10px;
+.comments-section {
+  margin-top: 20px;
 }
 
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px 0;
+.comment {
+  margin-bottom: 15px;
+}
+
+.reply {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.reply-toggle {
+  background: none;
   border: none;
-  border-radius: 4px;
+  color: #0079d3;
   cursor: pointer;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
-button:hover {
-  background-color: #45a049;
+.reply-toggle:hover {
+  text-decoration: underline;
 }
